@@ -17,8 +17,28 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('New User Connected')
 
+  socket.emit('newMessage', {
+    to: 'babes', 
+    from:'danny',
+    body:'hi love'
+  })
+
   socket.on('disconnect', () => {
     console.log('client disconnected');
+  })
+
+  socket.emit('newEmail', {
+    from: 'angela@tran.com',
+    text: 'yoyoyoy',
+    createdAt: 123
+  });
+
+  socket.on('createEmail', (newEmail) => {
+    console.log('creating email', newEmail);
+  })
+
+  socket.on('newMsg', (newMsg) => {
+    console.log('message', newMsg);
   })
 });
 
