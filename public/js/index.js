@@ -16,9 +16,9 @@ socket.on('newMessage', function(obj) {
 })
 
 socket.on('newLocationMessage', function(obj) {
+  console.log(obj)
   var li = jQuery('<li></li>')
   li.html(`${obj.from}: <a href='${obj.url}'>Current Location</a>`)
-
   jQuery('#message-list').append(li)
 })
 
