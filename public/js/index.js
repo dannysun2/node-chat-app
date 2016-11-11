@@ -1,25 +1,30 @@
-console.log('loaded!');
-
 var socket = io();
 socket.on('connect', function() {
-
-  socket.emit('newMsg', {
-    to: 'PrinPrin',
-    from: 'nellybear',
-    body: 'hey sis!'
-  })
-
+  console.log('connected to server');
 })
 
 socket.on('disconnect', function() {
-  console.log('disconnected');
+  console.log('disconnected from server');
 })
 
-socket.on('newEmail', function(obj) {
-  console.log('new email');
-  console.log(obj);
-})
-
+// listening FROM server for new message
 socket.on('newMessage', function(obj) {
-  console.log(obj)
+  console.log(obj);
+  var li = jQuery('<li></li>')
+  li.text(`${obj.from}: ${obj.text}`)
+
+  jQuery('#message-list').append(li)
 })
+
+
+
+// form handling
+jQuery('#message-form').on('submit', function(e){
+  e.preventDefault();
+  socket.emit('createMessage', {
+    from: 'User',
+    text: jQuery('[name=message]').val()
+  },
+  function(){
+  });
+});
