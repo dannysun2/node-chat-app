@@ -9,17 +9,14 @@ socket.on('disconnect', function() {
 
 // listening FROM server for new message
 socket.on('newMessage', function(obj) {
-  var li = jQuery('<li></li>')
-  li.text(`${obj.from}: ${obj.text}`)
-
-  jQuery('#message-list').append(li)
+  var div = jQuery(`<div class='chat-message left'><i class="fa fa-user-circle fa-3 message-avatar" aria-hidden="true"></i><div class='message'><a class='message-author'>${obj.from}</a><span class='message-date'>${obj.createdAt}</span><span class='message-content'>${obj.text}</span></div></div>`)
+  jQuery('.chat-discussion').append(div)
 })
 
 socket.on('newLocationMessage', function(obj) {
   console.log(obj)
-  var li = jQuery('<li></li>')
-  li.html(`${obj.from}: <a href='${obj.url}'>Current Location</a>`)
-  jQuery('#message-list').append(li)
+  var div = jQuery(`<div class='chat-message left'><i class="fa fa-user-circle fa-3 message-avatar" aria-hidden="true"></i><div class='message'><a class='message-author'>${obj.from}</a><span class='message-date'>${obj.createdAt}</span><span class='message-content'><a href='${obj.url}'>Current Location</a></span></div></div>`)
+  jQuery('.chat-discussion').append(div)
 })
 
 
@@ -29,14 +26,16 @@ jQuery('#message-form').on('submit', function(e){
   e.preventDefault();
   socket.emit('createMessage', {
     from: 'User',
-    text: jQuery('[name=message]').val()
+    text: jQuery('[name=message-field]').val()
   },
   function(){
   });
+  jQuery('[name=message-field]').val('')
 });
 
-var locationButton = jQuery('#send-location');
+var locationButton = $('#send-location');
 locationButton.on('click', function(e){
+  console.log('clicked')
   if (!navigator.geolocation) {
     return alert('Geolocation not supported by the browser.')
   }
