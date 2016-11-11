@@ -9,7 +9,7 @@ var server = http.createServer(app);
 const socketIO = require('socket.io');
 var io = socketIO(server)
 
-const { generateMessage } = require('./utils/message');
+const { generateMessage, generateLocationMessage } = require('./utils/message');
 
 app.use(express.static(publicPath));
 app.get('/', (req, res) => {
@@ -23,10 +23,11 @@ io.on('connection', (socket) => {
   console.log('user has connected')
 
   // socket welcomes the user
-  socket.emit('newMessage', generateMessage('admin', 'welcome welcome'))
+  socket.emit('newMessage', generateMessage('admin', 'Welcome to the Chat!'))
 
   // socket informs everyone else but the new client that a user has joined
-  socket.broadcast.emit('newMessage', generateMessage('admin', 'new user has joined'))
+  socket.broadcast.emit('newMessage', generateMessage('admin', 'A New User has joined the Chat!'))
+
 
   // listen for new messages
   socket.on('createMessage', (message, cb) => {
@@ -36,6 +37,10 @@ io.on('connection', (socket) => {
     io.emit('newMessage', generateMessage(message.from, message.text))
     cb('this from the server');
   })
+
+  socket.on('createLocationMessage', (pos) => {
+    io.emit('newLocationMessage', generateLocationMessage('admin', pos.latitude, pos.longitude))
+  });
 
   socket.on('disconnect', () => {
     console.log('client disconnected');
