@@ -19,8 +19,6 @@ socket.on('newLocationMessage', function(obj) {
   jQuery('.chat-discussion').append(div)
 })
 
-
-
 // form handling
 jQuery('#message-form').on('submit', function(e){
   e.preventDefault();
