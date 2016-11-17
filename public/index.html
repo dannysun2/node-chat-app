@@ -3,118 +3,63 @@
   <head>
     <meta charset="utf-8">
     <title>My Socket IO App</title>
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="./css/bootstrap.min.css" />
+    <link href="./css/style-254.css" /> -->
     <script src="https://use.fontawesome.com/66856d691c.js"></script>
-    <link href="./css/animate.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-254.css" rel="stylesheet">
   </head>
   <body>
-    <div id="wrapper">
-    <div id="page-wrapper" class="gray-bg">
-    <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-10">
-            <h2>Chat view</h2>
-        </div>
+
+    <div class="row" id="userLogin">
+      <form id="user-form">
+        <label>Enter Username:</label>
+        <input type="text" id="username" name="name">
+        <button type="submit" class="btn btn-lblue">Login</button>
+      </form>
     </div>
 
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-content">
-
-                        <strong>Chat room </strong> can be used to create chat room in your app.
-                        You can also use a small chat in the right corner to provide live discussion.
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-
-                    <div class="ibox chat-view">
-
-                        <div class="ibox-title">
-                            <small class="pull-right text-muted">Last message:  Mon Jan 26 2015 - 18:39:23</small>
-                             Chat room panel
-                        </div>
+    <div class="ui-254" id="chatArea">
+			<div class="ui-window">
+				<div class="row">
+					<div class="col-md-4 col-sm-4">
+						<h3><i class="fa fa-user lblue"></i>&nbsp; All Contacts</h3>
+						<div class="chat-contact" tabindex="5000" style="overflow: hidden; outline: none;">
+						</div>
+					</div>
 
 
-                          <div class="ibox-content">
-                          <div class="row">
-                              <div class="col-md-12 ">
-                                  <div class="chat-discussion">
+					<div class="col-md-8 col-sm-8">
+						<h3><i class="fa fa-comments-o lblue"></i>&nbsp; Live Chat</h3>
+						<div class="chat-content" tabindex="5001" style="overflow: hidden; outline: none;">
 
-                                  </div>
-                              </div>
+						</div>
+						<div class="chat-input-box">
+              <form id="message-form">
 
-                          </div>
+  							<div class="input-group">
+                  <input class="form-control message-input" name="message-field" placeholder="Enter message text"></input>
+                  <span class="input-group-btn">
+  									<button id="send-location" type="submit" class="btn btn-default"><small>Send Location</small></button>
+                    <button type="submit" class="btn btn-lblue">Send</button>
+                  </span>
+  							</div>
+            </form>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                          <div class="row">
-                              <div class="col-lg-12">
-                                <form id="message-form">
-                                  <div name="message" class="chat-message-form">
-                                      <div class="form-group">
-                                          <textarea class="form-control message-input" name="message-field" placeholder="Enter message text"></textarea>
-                                          <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-check"></i>&nbsp;Submit</button>
-                                      </div>
-                                      <button id="send-location" class="btn btn-default btn-block" type="button"><i class="fa fa-check"></i>Send Location</button>
-                                  </div>
-                                </form>
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-            </div>
-        </div>
-
-
-    </div>
-    <div class="footer">
-        <div class="pull-right">
-            myChatApp <strong>Danny Sun</strong>
-        </div>
-        <!-- <div>
-            <strong>Copyright</strong> Example Company © 2014-2015
-        </div> -->
-    </div>
-
-    </div>
-        <div class="small-chat-box fadeInRight animated">
-
-            <div class="heading" draggable="true">
-                <small class="chat-date pull-right">
-                    02.19.2015
-                </small>
-                Small chat
-            </div>
-
-            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 234px;"><div class="content" style="overflow: hidden; width: auto; height: 234px;">
-
-            </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.4; z-index: 90; right: 1px;"></div></div>
-            <div class="form-chat">
-                <div class="input-group input-group-sm"><input type="text" class="form-control"> <span class="input-group-btn"> <button class="btn btn-primary" type="button">Send
-                </button> </span></div>
-            </div>
-
-        </div>
-    </div>
+		</div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script
       src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous"></script>
-    <script src="./js/moment.js"></script>
+    <script src="./js/jquery.nicescroll.min.js"></script>
+
     <script src="./js/index.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.metisMenu.js"></script>
-    <script src="./js/jquery.slimscroll.min.js"></script>
-
-    <!-- Custom and plugin javascript -->
-    <script src="./js/inspinia.js"></script>
-    <script src="./js/pace.min.js"></script>
   </body>
 </html>
