@@ -1,0 +1,14 @@
+# Logfile created on 2016-11-18 00:52:58 -0600 by logger.rb/53141
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-11-18 00:52:58 -0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3dcfdc0d] Running /usr/bin/env mkdir -p /tmp as deploy@159.203.166.111
+ DEBUG [3dcfdc0d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [3dcfdc0d] Finished in 1.042 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-nodechat-socketio-production-dannysun.sh 0.0%
+  INFO Uploading /tmp/git-ssh-nodechat-socketio-production-dannysun.sh 100.0%
+  INFO [b501cbc3] Running /usr/bin/env chmod 700 /tmp/git-ssh-nodechat-socketio-production-dannysun.sh as deploy@159.203.166.111
+ DEBUG [b501cbc3] Command: /usr/bin/env chmod 700 /tmp/git-ssh-nodechat-socketio-production-dannysun.sh
+  INFO [b501cbc3] Finished in 0.107 seconds with exit status 0 (successful).
+  INFO [252a9430] Running /usr/bin/env git ls-remote --heads git@example.com:me/my_repo.git as deploy@159.203.166.111
+ DEBUG [252a9430] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-nodechat-socketio-production-dannysun.sh" ; /usr/bin/env git ls-remote --heads git@example.com:me/my_repo.git )
