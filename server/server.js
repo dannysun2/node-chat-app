@@ -5,9 +5,11 @@ const publicPath = path.join(__dirname, '../public');
 const app = express();
 const port = process.env.PORT || 3002;
 
+// var server = http.createServer(app);
+// const socketIO = require('socket.io');
+// var io = socketIO(server)
 var server = http.createServer(app);
-const socketIO = require('socket.io');
-var io = socketIO(server)
+var io = require('socket.io').listen(server);
 
 const { generateMessage, generateLocationMessage } = require('./utils/message');
 var users = [];
