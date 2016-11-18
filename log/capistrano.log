@@ -263,3 +263,69 @@
   INFO [c691fa8c] Running /usr/bin/env mv /home/deploy/apps/nodechat/releases/current /home/deploy/apps/nodechat as deploy@159.203.166.111
  DEBUG [c691fa8c] Command: /usr/bin/env mv /home/deploy/apps/nodechat/releases/current /home/deploy/apps/nodechat
   INFO [c691fa8c] Finished in 0.102 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-11-18 01:41:49 -0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [95faed32] Running /usr/bin/env mkdir -p /tmp as deploy@159.203.166.111
+ DEBUG [95faed32] Command: /usr/bin/env mkdir -p /tmp
+  INFO [95faed32] Finished in 0.683 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-nodechat-production-dannysun.sh 0.0%
+  INFO Uploading /tmp/git-ssh-nodechat-production-dannysun.sh 100.0%
+  INFO [f88983ab] Running /usr/bin/env chmod 700 /tmp/git-ssh-nodechat-production-dannysun.sh as deploy@159.203.166.111
+ DEBUG [f88983ab] Command: /usr/bin/env chmod 700 /tmp/git-ssh-nodechat-production-dannysun.sh
+  INFO [f88983ab] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [b3f374eb] Running /usr/bin/env git ls-remote --heads git@github.com:dannysun2/node-chat-app.git as deploy@159.203.166.111
+ DEBUG [b3f374eb] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-nodechat-production-dannysun.sh" ; /usr/bin/env git ls-remote --heads git@github.com:dannysun2/node-chat-app.git )
+ DEBUG [b3f374eb] 	c8ec7b527cc182a91537ef8527066dae0e602f19	refs/heads/master
+  INFO [b3f374eb] Finished in 0.467 seconds with exit status 0 (successful).
+  INFO [2b55c147] Running /usr/bin/env mkdir -p /home/deploy/apps/nodechat/shared /home/deploy/apps/nodechat/releases as deploy@159.203.166.111
+ DEBUG [2b55c147] Command: /usr/bin/env mkdir -p /home/deploy/apps/nodechat/shared /home/deploy/apps/nodechat/releases
+  INFO [2b55c147] Finished in 0.136 seconds with exit status 0 (successful).
+ DEBUG [ed3e209b] Running [ -f /home/deploy/apps/nodechat/current/REVISION ] as deploy@159.203.166.111
+ DEBUG [ed3e209b] Command: [ -f /home/deploy/apps/nodechat/current/REVISION ]
+ DEBUG [ed3e209b] Finished in 0.098 seconds with exit status 0 (successful).
+ DEBUG [61905a61] Running /usr/bin/env cat /home/deploy/apps/nodechat/current/REVISION 2>/dev/null as deploy@159.203.166.111
+ DEBUG [61905a61] Command: /usr/bin/env cat /home/deploy/apps/nodechat/current/REVISION 2>/dev/null
+ DEBUG [61905a61] 	040353e3f8ede99cce3710a22857a7bec3d9c3d6
+ DEBUG [61905a61] Finished in 0.092 seconds with exit status 0 (successful).
+ DEBUG [bc3be0bf] Running [ -f /home/deploy/apps/nodechat/repo/HEAD ] as deploy@159.203.166.111
+ DEBUG [bc3be0bf] Command: [ -f /home/deploy/apps/nodechat/repo/HEAD ]
+ DEBUG [bc3be0bf] Finished in 0.096 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/apps/nodechat/repo
+ DEBUG [399a35d6] Running if test ! -d /home/deploy/apps/nodechat/repo; then echo "Directory does not exist '/home/deploy/apps/nodechat/repo'" 1>&2; false; fi as deploy@159.203.166.111
+ DEBUG [399a35d6] Command: if test ! -d /home/deploy/apps/nodechat/repo; then echo "Directory does not exist '/home/deploy/apps/nodechat/repo'" 1>&2; false; fi
+ DEBUG [399a35d6] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO [31fc9fa4] Running /usr/bin/env git remote update --prune as deploy@159.203.166.111
+ DEBUG [31fc9fa4] Command: cd /home/deploy/apps/nodechat/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-nodechat-production-dannysun.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [31fc9fa4] 	Fetching origin
+ DEBUG [31fc9fa4] 	From github.com:dannysun2/node-chat-app
+   040353e..c8ec7b5  master     -> master
+  INFO [31fc9fa4] Finished in 0.547 seconds with exit status 0 (successful).
+ DEBUG [671475c5] Running if test ! -d /home/deploy/apps/nodechat/repo; then echo "Directory does not exist '/home/deploy/apps/nodechat/repo'" 1>&2; false; fi as deploy@159.203.166.111
+ DEBUG [671475c5] Command: if test ! -d /home/deploy/apps/nodechat/repo; then echo "Directory does not exist '/home/deploy/apps/nodechat/repo'" 1>&2; false; fi
+ DEBUG [671475c5] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [4875d506] Running /usr/bin/env mkdir -p /home/deploy/apps/nodechat/releases/20161118074152 as deploy@159.203.166.111
+ DEBUG [4875d506] Command: cd /home/deploy/apps/nodechat/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-nodechat-production-dannysun.sh" ; /usr/bin/env mkdir -p /home/deploy/apps/nodechat/releases/20161118074152 )
+  INFO [4875d506] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [c4d51bfe] Running /usr/bin/env git archive master | tar -x -f - -C /home/deploy/apps/nodechat/releases/20161118074152 as deploy@159.203.166.111
+ DEBUG [c4d51bfe] Command: cd /home/deploy/apps/nodechat/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-nodechat-production-dannysun.sh" ; /usr/bin/env git archive master | tar -x -f - -C /home/deploy/apps/nodechat/releases/20161118074152 )
+  INFO [c4d51bfe] Finished in 0.234 seconds with exit status 0 (successful).
+ DEBUG [18004f8b] Running if test ! -d /home/deploy/apps/nodechat/repo; then echo "Directory does not exist '/home/deploy/apps/nodechat/repo'" 1>&2; false; fi as deploy@159.203.166.111
+ DEBUG [18004f8b] Command: if test ! -d /home/deploy/apps/nodechat/repo; then echo "Directory does not exist '/home/deploy/apps/nodechat/repo'" 1>&2; false; fi
+ DEBUG [18004f8b] Finished in 0.103 seconds with exit status 0 (successful).
+ DEBUG [5483ecf2] Running /usr/bin/env git rev-list --max-count=1 master as deploy@159.203.166.111
+ DEBUG [5483ecf2] Command: cd /home/deploy/apps/nodechat/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-nodechat-production-dannysun.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [5483ecf2] 	c8ec7b527cc182a91537ef8527066dae0e602f19
+ DEBUG [5483ecf2] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [1a92b5d3] Running if test ! -d /home/deploy/apps/nodechat/releases/20161118074152; then echo "Directory does not exist '/home/deploy/apps/nodechat/releases/20161118074152'" 1>&2; false; fi as deploy@159.203.166.111
+ DEBUG [1a92b5d3] Command: if test ! -d /home/deploy/apps/nodechat/releases/20161118074152; then echo "Directory does not exist '/home/deploy/apps/nodechat/releases/20161118074152'" 1>&2; false; fi
+ DEBUG [1a92b5d3] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [8b14b834] Running /usr/bin/env echo "c8ec7b527cc182a91537ef8527066dae0e602f19" >> REVISION as deploy@159.203.166.111
+ DEBUG [8b14b834] Command: cd /home/deploy/apps/nodechat/releases/20161118074152 && /usr/bin/env echo "c8ec7b527cc182a91537ef8527066dae0e602f19" >> REVISION
+  INFO [8b14b834] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [a553c4a8] Running /usr/bin/env ln -s /home/deploy/apps/nodechat/releases/20161118074152 /home/deploy/apps/nodechat/releases/current as deploy@159.203.166.111
+ DEBUG [a553c4a8] Command: /usr/bin/env ln -s /home/deploy/apps/nodechat/releases/20161118074152 /home/deploy/apps/nodechat/releases/current
+  INFO [a553c4a8] Finished in 0.100 seconds with exit status 0 (successful).
+  INFO [be68e62d] Running /usr/bin/env mv /home/deploy/apps/nodechat/releases/current /home/deploy/apps/nodechat as deploy@159.203.166.111
+ DEBUG [be68e62d] Command: /usr/bin/env mv /home/deploy/apps/nodechat/releases/current /home/deploy/apps/nodechat
+  INFO [be68e62d] Finished in 0.103 seconds with exit status 0 (successful).

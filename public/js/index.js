@@ -1,4 +1,6 @@
-var socket = io();
+// var socket = io();
+
+var socket = io.connect('http://dannysun.me:3000');
 
 
 
