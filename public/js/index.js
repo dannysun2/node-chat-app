@@ -1,6 +1,6 @@
 // var socket = io();/
 
-var socket = io.connect("http://localhost:3002");
+var socket = io.connect("http://dannysun.me:3002");
 
 
 
