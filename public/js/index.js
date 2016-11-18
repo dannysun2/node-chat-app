@@ -1,6 +1,6 @@
 // var socket = io();
 
-var socket = io.connect();
+var socket = io.connect("http://localhost:8080");
 
 
 
