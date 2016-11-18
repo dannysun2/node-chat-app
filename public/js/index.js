@@ -1,6 +1,6 @@
-var socket = io();
+// var socket = io();/
 
-var socket = io.connect("http://localhost:80");
+var socket = io.connect("http://localhost:3002");
 
 
 
