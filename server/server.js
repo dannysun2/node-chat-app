@@ -5,11 +5,9 @@ const publicPath = path.join(__dirname, '../public');
 const app = express();
 const port = process.env.PORT || 3002;
 
-// var server = http.createServer(app);
-// const socketIO = require('socket.io');
-// var io = socketIO(server)
 var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+const socketIO = require('socket.io');
+var io = socketIO(server)
 
 const { generateMessage, generateLocationMessage } = require('./utils/message');
 var users = [];
@@ -61,5 +59,5 @@ io.on('connection', (socket) => {
 
 // starting server
 server.listen(port, () => {
-  console.log('server is up on port 3000!');
+  console.log(`server is up on port ${port}!`);
 })
